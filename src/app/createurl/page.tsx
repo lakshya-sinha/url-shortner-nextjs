@@ -72,8 +72,10 @@ const Page= () => {
       }
     }
 
+    const domain = process.env.NEXT_PUBLIC_DOMAIN_URL
+
     function copySortedUrl(slug: string){
-      navigator.clipboard.writeText(`localhost:3000/${slug}`)
+      navigator.clipboard.writeText(`${domain}/${slug}`)
       .then(() => {
         console.log("Copied!");
       })
