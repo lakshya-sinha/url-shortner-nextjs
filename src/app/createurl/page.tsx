@@ -16,15 +16,17 @@ const Page= () => {
     
     const [sortedUrl, setShortedUrl] = useState<string>("")
     const [originalUrl, setOriginalUrl] = useState<OriginalUrl>({oriUrl: ""})
-    const [data, setData] = useState<UrlItem[]>(()=>{
-      const localData :any= localStorage.getItem("urls");
-      const jsonUrl = JSON.parse(localData)
-      return jsonUrl
-    })
+    const [data, setData] = useState<UrlItem[]>([])
     
+
+
 
     useEffect(()=>{
         setShortedUrl("your sorted url should appear here")
+        const localData = localStorage.getItem("urls");
+        if (localData) {
+          setData(JSON.parse(localData));
+        }
     }, [])
 
     useEffect(()=>{
