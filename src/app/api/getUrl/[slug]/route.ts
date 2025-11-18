@@ -7,7 +7,7 @@ connectDB();
 
 export async function GET(
     request: NextRequest, 
-    context: { params: { slug: string } }
+    context: { params: Promise<{ slug: string }> }
 ){
 
     try {
