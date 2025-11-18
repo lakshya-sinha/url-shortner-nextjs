@@ -14,7 +14,10 @@ export async function POST(request: NextRequest){
         const  url = await Url.findOne({oriUrl})
         
         if(url){
-            return NextResponse.json({error: `url already exists your url is ${oriUrl}`}, {status: 400})
+            return NextResponse.json(
+                {url: `${url.slug}`, message: "url created successfully", success: true},
+                {status: 201}
+            )
         }
 
         
